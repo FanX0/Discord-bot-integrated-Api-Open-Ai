@@ -7,5 +7,11 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 
+client.on("messageCreate", function(message) {
+    if (message.author.bot) return;
+    return message.reply(`${message.content}`);                          
+ 
+ });  
+ 
 client.login(process.env.BOT_TOKEN);
 
